@@ -29,7 +29,9 @@ const App = () => {
         {/* Using CSS baseline to reset default CSS, much like how it's done using normalize.css */}
         <CssBaseline />
         {/* Using Context API to provide states/data to other components - Separating contexts for Events and Artist */}
-        <ArtistContext.Provider value={{ artistData, setArtistData }}>
+        <ArtistContext.Provider
+          value={{ artistData, setArtistData, setShowEvents }}
+        >
           <EventsContext.Provider
             value={{ eventsData, setEventsData, showEvents, setShowEvents }}
           >

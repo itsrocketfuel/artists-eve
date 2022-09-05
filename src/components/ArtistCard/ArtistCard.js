@@ -31,7 +31,7 @@ const ArtistCard = () => {
 
   // checking for events data
   useEffect(() => {
-    console.log("ArtistCard - Events' Data: ", eventsData);
+    console.log("Events' Data: ", eventsData);
   }, [eventsData]);
 
   const styles = {

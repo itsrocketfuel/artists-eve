@@ -19,7 +19,6 @@ const Footer = () => {
           Artist's Eve
         </Link>{" "}
         {new Date().getFullYear()}
-        {" - Powered by Bands in Town"}
       </Typography>
     </Box>
   );

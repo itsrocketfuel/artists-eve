@@ -1,13 +1,6 @@
 import React, { useContext } from "react";
 // MUI
-import {
-  Card,
-  CardContent,
-  Box,
-  Typography,
-  Container,
-  Grid,
-} from "@mui/material";
+import { Card, CardContent, Typography, Container, Grid } from "@mui/material";
 // contexts
 import { EventsContext } from "../../contexts/EventsContext";
 // utils

@@ -13,7 +13,7 @@ import { EventsContext } from "../../contexts/EventsContext";
 const Header = (props) => {
   const styles = {
     searchBar: { marginLeft: 30, width: "100%" },
-    eventIcon: { marginRight: 2, fontSize: 30 },
+    eventIcon: { marginRight: 10, fontSize: 30 },
   };
 
   const id = useId();
@@ -32,7 +32,7 @@ const Header = (props) => {
 
   // checking for artist data
   useEffect(() => {
-    console.log("Header - Artist's Data: ", artistData);
+    console.log("Artist's Data: ", artistData);
   }, [artistData]);
 
   return (

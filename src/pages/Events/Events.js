@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
 // MUI
-import { Box, Typography, Container } from "@mui/material";
+import { Typography, Container, Button } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 // contexts
 import { ArtistContext } from "../../contexts/ArtistContext";
+
 // custom components
 import EventCards from "../../components/EventCards";
 
 const Events = () => {
-  const { artistData } = useContext(ArtistContext);
+  const { artistData, setShowEvents } = useContext(ArtistContext);
 
   const styles = {
     container: {
@@ -27,10 +29,25 @@ const Events = () => {
       marginTop: 30,
       marginBottom: 30,
     },
+    backButton: {
+      position: "relative",
+      top: "3%",
+      left: "0.5%",
+    },
   };
 
   return (
     <Container style={styles.container} maxWidth={false}>
+      <Button
+        variant="outlined"
+        startIcon={<ArrowBackIcon fontSize="small" />}
+        size="small"
+        style={styles.backButton}
+        onClick={() => setShowEvents(false)}
+      >
+        Go Back
+      </Button>
+
       <Container maxWidth="sm" style={styles.artistImageContainer}>
         <img
           src={

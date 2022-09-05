@@ -8,7 +8,7 @@ const getArtist = async (artist) => {
   const promise = await Axios.get(
     "https://rest.bandsintown.com/artists/" + artist + "?app_id=" + appId,
   );
-  console.log("bandsInTownApi - getArtist Response: ", promise);
+  console.log("getArtist Response: ", promise);
   return promise;
 };
 
@@ -20,7 +20,7 @@ const getEvents = async (artist) => {
       "/events?app_id=" +
       appId,
   );
-  console.log("bandsInTownApi - getEvents Response: ", promise);
+  console.log("getEvents Response: ", promise);
   return promise;
 };
 
