@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Card, CardContent, Typography, Container, Grid } from "@mui/material";
 import PublicIcon from "@mui/icons-material/Public";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
+import FmdGoodIcon from "@mui/icons-material/FmdGood";
 import EventIcon from "@mui/icons-material/Event";
 // contexts
 import { EventsContext } from "../../contexts/EventsContext";
@@ -42,7 +42,7 @@ const EventCards = () => {
                     {event.venue.country}
                   </Typography>
                   <Typography
-                    style={{ fontSize: 14 }}
+                    fontSize={14}
                     color="text.secondary"
                     display={"flex"}
                     alignItems={"center"}
@@ -50,28 +50,30 @@ const EventCards = () => {
                     marginBottom={1.5}
                   >
                     <LocationCityIcon style={styles.icon} />
-                    {event.venue.city}
+                    <b>{event.venue.city}</b>
                   </Typography>
                   <Typography
+                    fontSize={14}
                     color="text.secondary"
                     display={"flex"}
                     alignItems={"center"}
                     lineHeight={1.1}
                     gutterBottom
                   >
-                    <LocationOnIcon style={styles.icon} />
-                    <b style={{ marginRight: 10 }}>Venue: </b>{" "}
-                    {event.venue.name}
+                    <FmdGoodIcon style={styles.icon} />
+                    <span>
+                      <b>Venue: </b> <span>{event.venue.name}</span>
+                    </span>
                   </Typography>
                   <Typography
-                    variant="body1"
+                    fontSize={14}
                     color="text.secondary"
                     display={"flex"}
                     alignItems={"center"}
-                    marginTop={2}
+                    marginTop={1.5}
                   >
                     <EventIcon style={styles.icon} />{" "}
-                    <b style={{ marginRight: 10 }}>Date: </b>{" "}
+                    <b style={{ marginRight: 5 }}>Date: </b>{" "}
                     {dateTimeConverter(event.datetime)}
                   </Typography>
                 </CardContent>
