@@ -49,8 +49,14 @@ const App = () => {
           >
             <Header />
             {/* If events of an artist are viewed, render Events, otherwise render home page */}
-            {showEvents ? <Events /> : <Home />}
-            <Footer />
+            {showEvents ? (
+              <Events />
+            ) : (
+              <>
+                <Home />
+                <Footer />
+              </>
+            )}
           </EventsContext.Provider>
         </ArtistContext.Provider>
       </ThemeProvider>

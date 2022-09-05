@@ -33,7 +33,7 @@ const EventCards = () => {
               <Card style={{ minWidth: 275 }}>
                 <CardContent>
                   <Typography
-                    variant="h5"
+                    variant="h6"
                     gutterBottom
                     display={"flex"}
                     alignItems={"center"}
