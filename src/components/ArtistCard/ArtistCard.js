@@ -18,89 +18,96 @@ import { EventsContext } from "../../contexts/EventsContext";
 import { getEvents } from "../../data/bandsInTownApi";
 
 const ArtistCard = () => {
+  // getting states needed in this component from their respective contexts - all are coming from top level App.js
   const { artistData } = useContext(ArtistContext);
   const { eventsData, setEventsData, setShowEvents } =
     useContext(EventsContext);
 
+  // function to add events data to its state and show events page in case events are rendered
   const handleOnViewEvents = async () => {
     setEventsData(await getEvents(artistData.data.name));
     setShowEvents(true);
   };
 
+  // checking for events data
   useEffect(() => {
-    console.log("Events' Data: ", eventsData);
+    console.log("ArtistCard - Events' Data: ", eventsData);
   }, [eventsData]);
 
+  const styles = {
+    card: {
+      width: "50vh",
+    },
+    artistCardTop: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
+    bitIcon: {
+      width: 24,
+      height: 24,
+    },
+  };
+
   return (
-    <Card
-      sx={{
-        height: "100%",
-        width: 350,
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <Card style={styles.card}>
       <CardMedia
         component="img"
-        image={artistData.data !== undefined ? artistData.data.image_url : ""}
-        alt="random"
+        image={
+          artistData.data !== undefined
+            ? artistData.data.image_url
+            : "No image found"
+        }
+        alt="Artist"
       />
       <CardContent>
-        <Box
-          sx={{
-            display: "flex",
-            flexGrow: 1,
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
-            {artistData.data !== undefined ? artistData.data.name : ""}
+        <Box style={styles.artistCardTop}>
+          <Typography variant="h6" component="h2" style={{ fontWeight: 600 }}>
+            {artistData.data !== undefined && artistData.data !== ""
+              ? artistData.data.name
+              : "Name not found"}
           </Typography>
-          <Box>
-            {artistData.data !== undefined ? (
-              <Box>
-                <IconButton
-                  color="primary"
-                  href={artistData.data.facebook_page_url}
-                  target="_blank"
-                  disabled={
-                    artistData.data.facebook_page_url !== "" ? false : true
-                  }
-                >
-                  <FacebookIcon />
-                </IconButton>
-                <IconButton
-                  color="primary"
-                  href={artistData.data.url}
-                  target="_blank"
-                >
-                  <img
-                    src={require("../../assets/bit-ico.png")}
-                    style={{ width: 26, height: 26 }}
-                    alt="Bands in Town Icon"
-                  />
-                </IconButton>
-              </Box>
-            ) : (
-              ""
-            )}
-          </Box>
+          {artistData.data !== undefined && artistData.data !== "" ? (
+            <Box>
+              <IconButton
+                color="primary"
+                href={artistData.data.facebook_page_url}
+                target="_blank"
+                disabled={
+                  // disabling Facebook button in case there is no Facebook Url for an artist
+                  artistData.data.facebook_page_url !== "" ? false : true
+                }
+              >
+                <FacebookIcon />
+              </IconButton>
+
+              <IconButton
+                color="primary"
+                href={artistData.data.url}
+                target="_blank"
+              >
+                <img
+                  src={require("../../assets/bit-ico.png")}
+                  style={styles.bitIcon}
+                  alt="Bands in Town Icon"
+                />
+              </IconButton>
+            </Box>
+          ) : (
+            "No artist found."
+          )}
         </Box>
-        <Box>
-          <Typography component="h2" color="text.secondary">
-            {artistData.data !== undefined
-              ? "Upcoming Events: " + artistData.data.upcoming_event_count
-              : ""}
-          </Typography>
-        </Box>
+        <Typography component="h2" color="text.secondary">
+          {artistData.data !== undefined && artistData.data !== ""
+            ? "Upcoming Events: " + artistData.data.upcoming_event_count
+            : ""}
+        </Typography>
       </CardContent>
       <CardActions>
         <Button
           size="medium"
           variant="contained"
-          sx={{ m: 1 }}
+          style={{ margin: 7 }}
           onClick={handleOnViewEvents}
         >
           View Events
