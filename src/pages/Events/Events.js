@@ -53,10 +53,10 @@ const Events = () => {
           src={
             artistData.data !== undefined
               ? artistData.data.image_url
-              : "Image not found"
+              : require("../../assets/no-image-placeholder.png")
           }
           style={styles.artistImage}
-          alt="Loading..."
+          alt={""}
         />
 
         <Typography
@@ -66,19 +66,20 @@ const Events = () => {
           style={{ marginTop: 10 }}
         >
           {artistData.data !== undefined
-            ? artistData.data.name
-            : "Name not found"}
+            ? artistData.data.name !== "" && artistData.data.name
+            : "He who shall not be named."}
         </Typography>
 
-        {artistData.data.upcoming_event_count > 0 &&
-        artistData.data !== undefined ? (
-          <Typography
-            color="text.primary"
-            align="center"
-            style={styles.eventCountText}
-          >
-            {artistData.data.upcoming_event_count} Upcoming Events
-          </Typography>
+        {artistData.data !== undefined ? (
+          artistData.data.upcoming_event_count > 0 && (
+            <Typography
+              color="text.primary"
+              align="center"
+              style={styles.eventCountText}
+            >
+              {artistData.data.upcoming_event_count} Upcoming Events
+            </Typography>
+          )
         ) : (
           <></>
         )}

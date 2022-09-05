@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // pages
 import Home from "./pages/Home";
 import Events from "./pages/Events";
@@ -21,6 +21,18 @@ const App = () => {
   const [eventsData, setEventsData] = useState({});
   // state to render events page if viewed, otherwise show home page
   const [showEvents, setShowEvents] = useState(false);
+
+  // persisting showEvents state
+  useEffect(() => {
+    window.localStorage.setItem("showEvents", showEvents);
+    console.log("Show Events Local Storage: ", showEvents);
+  }, [showEvents]);
+
+  // loading persisted showEvents state on page load
+  useEffect(() => {
+    const lsState = window.localStorage.getItem("showEvents");
+    setShowEvents(lsState);
+  }, []);
 
   return (
     <>
