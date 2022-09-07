@@ -15,24 +15,35 @@ import Footer from "./components/Footer";
 const theme = createTheme();
 
 const App = () => {
-  // state for artist's data
-  const [artistData, setArtistData] = useState({});
-  // state for events data of an artist
-  const [eventsData, setEventsData] = useState({});
-  // state to render events page if viewed, otherwise show home page
-  const [showEvents, setShowEvents] = useState(false);
+  // loading persisted data for artist, events and event page toggle if exists, otherwise use defaults
+  const storedArtist = JSON.parse(localStorage.getItem("artistData")) || {};
+  const storedEvents = JSON.parse(localStorage.getItem("eventsData")) || {};
+  const storedEventsToggle =
+    JSON.parse(localStorage.getItem("showEvents")) || false;
 
-  // persisting showEvents state
+  // state for artist's data
+  const [artistData, setArtistData] = useState(storedArtist);
+  // state for events data of an artist
+  const [eventsData, setEventsData] = useState(storedEvents);
+  // state to render events page if viewed, otherwise show home page
+  const [showEvents, setShowEvents] = useState(storedEventsToggle);
+
+  // local storage
+
+  // persisting showEvents state each time it's updated
   useEffect(() => {
-    window.localStorage.setItem("showEvents", showEvents);
-    console.log("Show Events Local Storage: ", showEvents);
+    localStorage.setItem("showEvents", JSON.stringify(showEvents));
   }, [showEvents]);
 
-  // loading persisted showEvents state on page load
+  // persisting artistData state each time it's updated
   useEffect(() => {
-    const lsState = window.localStorage.getItem("showEvents");
-    setShowEvents(lsState);
-  }, []);
+    localStorage.setItem("artistData", JSON.stringify(artistData));
+  }, [artistData]);
+
+  // persisting artistData state each time it's updated
+  useEffect(() => {
+    localStorage.setItem("eventsData", JSON.stringify(eventsData));
+  }, [eventsData]);
 
   return (
     <>

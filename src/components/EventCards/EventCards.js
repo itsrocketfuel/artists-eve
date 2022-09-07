@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 // MUI
 import { Card, CardContent, Typography, Container, Grid } from "@mui/material";
-import PublicIcon from "@mui/icons-material/Public";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 import FmdGoodIcon from "@mui/icons-material/FmdGood";
 import EventIcon from "@mui/icons-material/Event";
+import FlagIcon from "@mui/icons-material/Flag";
 // contexts
 import { EventsContext } from "../../contexts/EventsContext";
 // utils
@@ -38,7 +38,7 @@ const EventCards = () => {
                     display={"flex"}
                     alignItems={"center"}
                   >
-                    <PublicIcon style={styles.icon} />
+                    <FlagIcon style={styles.icon} />
                     {event.venue.country}
                   </Typography>
                   <Typography

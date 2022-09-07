@@ -39,7 +39,16 @@ const Header = (props) => {
     <AppBar position="relative">
       <Toolbar>
         <EventIcon style={styles.eventIcon} />
-        <Typography variant="h6" noWrap style={{ overflow: "visible" }}>
+        <Typography
+          variant="h6"
+          component="h6"
+          noWrap
+          style={{ overflow: "visible", cursor: "pointer" }}
+          onClick={() => {
+            localStorage.clear();
+            window.location.reload(false);
+          }}
+        >
           Artist's Eve
         </Typography>
         <SearchBar
