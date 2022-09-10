@@ -1,6 +1,8 @@
 import { getArtist, getEvents } from "../bandsInTownApi";
 import mockAxios from "axios";
-
+// mocking axios to avoid sending requests to the actual bands in town API
+// to ensure the tests perform well in case the API goes down, or the data in API
+// doesn't exist anymore - to avoid uncertainty, I've mocking axios
 jest.mock("axios");
 
 const sampleArtist = "Eminem";

@@ -25,15 +25,22 @@ const Home = () => {
   };
 
   return (
-    <Container style={styles.container} maxWidth={false}>
-      {artistData.data !== undefined && artistData.data !== "" ? (
-        <ArtistCard />
-      ) : artistData.data === "" ? (
+    <Container
+      data-testid="main-container"
+      style={styles.container}
+      maxWidth={false}
+    >
+      {artistData !== undefined &&
+      artistData.data !== undefined &&
+      artistData.data !== "" ? (
+        <ArtistCard data-testid="artist-card" />
+      ) : artistData !== undefined && artistData.data === "" ? (
         <Typography variant="h6" color="text.secondary">
           No artist found.
         </Typography>
       ) : (
         <Container
+          data-testid="logo-container"
           maxWidth={false}
           style={{
             textAlign: "center",

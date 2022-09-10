@@ -4,7 +4,7 @@ Find details on artists and their upcoming events.
 
 # Getting Started
 
-Clone the repository on your local machine, open its directory in a terminal and run `npm install`
+Clone the repository to your local machine, open its directory in a terminal and run `npm install`
 
 ## Available Scripts
 
@@ -20,4 +20,4 @@ You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
+Launches the test runner in the interactive watch mode. Use this to run the tests suites available.\

@@ -54,7 +54,7 @@ const ArtistCard = () => {
       <CardMedia
         component="img"
         image={
-          artistData.data !== undefined
+          artistData !== undefined && artistData.data !== undefined
             ? artistData.data.image_url
             : "No image found"
         }
@@ -63,11 +63,15 @@ const ArtistCard = () => {
       <CardContent>
         <Box style={styles.artistCardTop}>
           <Typography variant="h6" component="h2" style={{ fontWeight: 600 }}>
-            {artistData.data !== undefined && artistData.data !== ""
+            {artistData !== undefined &&
+            artistData.data !== undefined &&
+            artistData.data !== ""
               ? artistData.data.name
               : "Name not found"}
           </Typography>
-          {artistData.data !== undefined && artistData.data !== "" ? (
+          {artistData !== undefined &&
+          artistData.data !== undefined &&
+          artistData.data !== "" ? (
             <Box>
               <IconButton
                 color="primary"
@@ -98,7 +102,9 @@ const ArtistCard = () => {
           )}
         </Box>
         <Typography component="h2" color="text.secondary">
-          {artistData.data !== undefined && artistData.data !== ""
+          {artistData !== undefined &&
+          artistData.data !== undefined &&
+          artistData.data !== ""
             ? "Upcoming Events: " + artistData.data.upcoming_event_count
             : ""}
         </Typography>
