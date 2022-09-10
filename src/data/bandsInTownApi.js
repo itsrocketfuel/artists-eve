@@ -1,3 +1,5 @@
+// API documentation is available at https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0
+
 import Axios from "axios";
 
 // App ID as described by instructor
