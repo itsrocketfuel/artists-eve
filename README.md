@@ -4,6 +4,10 @@ Find details on artists and their upcoming events.
 
 # Getting Started
 
+View app at https://magnificent-youtiao-76a272.netlify.app/
+
+OR
+
 Clone the repository to your local machine, open its directory in a terminal and run `npm install`
 
 ## Available Scripts
@@ -21,6 +25,16 @@ You may also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode. Use this to run the tests suites available.\
+
+## Deploy Strategy
+
+This app is deployed on Netlify.
+Production build URL: https://magnificent-youtiao-76a272.netlify.app/
+
+There's a development branch for all development purposes.
+main branch is the production branch.
+
+Any push to the main (production) branch is automatically deployed and built and served on Netlify on the given URL.
 
 ## Architecture and Design choices
 
