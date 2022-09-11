@@ -5,8 +5,15 @@ import { Container, Typography } from "@mui/material";
 import ArtistCard from "../../components/ArtistCard/ArtistCard";
 // contexts
 import { ArtistContext } from "../../contexts/ArtistContext";
+// api
+import { getAccessToken } from "../../data/spotifyApi";
+import { useEffect } from "react";
 
 const Home = () => {
+  useEffect(() => {
+    getAccessToken();
+    console.log("Get Access token ran");
+  }, []);
   const { artistData } = useContext(ArtistContext);
 
   const styles = {
