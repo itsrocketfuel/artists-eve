@@ -25,16 +25,24 @@ Launches the test runner in the interactive watch mode. Use this to run the test
 ## Architecture and Design choices
 
 This project has only 2 layers in its architecture, which is a view layer and a data layer.
-This is so because it is a small app.
+This is so because it is a small app and there is no need to add more complexity by creating additional layers.
+
+If this were a bigger app, it would make sense to include a third layer called application layer which would include all
+of the business logic for this app.
 
 ### `Data Layer`
 
 The data layer is housed in the "data" directory inside the project. The only data we have for this project is
 concerned with an API called "Bands in Town". Its implementation exists in the bandsInTownApi.js file.
 
+We have separated the data layer so its easier to look at files and directories that only concern data, with a data focus
+while ignoring the view layer.
+
 ### `View Layer`
 
 For the view layer, we have some static assets and multiple components, all being presented in page components.
+
+We have separated the view layer from the data layer so its easier to look at files and directories that only concern the view of the app, while ignoring the data.
 
 ### `File Structure`
 
