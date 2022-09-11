@@ -52,7 +52,7 @@ const Home = () => {
             alt="Loading..."
           />
           <Typography variant="h6" align="center" color="text.secondary">
-            Try searching for your favorite artist.
+            Try searching for your favorite artistxxx.
           </Typography>
         </Container>
       )}
