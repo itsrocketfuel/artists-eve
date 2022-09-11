@@ -7,6 +7,8 @@ const auth_parameters = {
   method: "POST",
   headers: {
     "Content-Type": "application/x-www-form-urlencoded",
+    "Access-Control-Allow-Origin":
+      "https://magnificent-youtiao-76a272.netlify.app/",
   },
   body:
     "grant_type=client_credentials&client_id" +
