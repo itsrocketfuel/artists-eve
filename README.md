@@ -31,10 +31,10 @@ Launches the test runner in the interactive watch mode. Use this to run the test
 This app is deployed on Netlify.
 Production build URL: https://magnificent-youtiao-76a272.netlify.app/
 
-There's a development branch for all development purposes.
+There's a development branch for all development purposes.\
 main branch is the production branch.
 
-Any push to the main (production) branch is automatically deployed and built and served on Netlify on the given URL.
+Any push to the main (production) branch is automatically deployed, built and served on Netlify on the given URL.
 
 ## Architecture and Design choices
 
